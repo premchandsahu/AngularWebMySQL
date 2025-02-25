@@ -1,0 +1,43 @@
+<div class="card" style="width: 1800px">
+    <h3>Listing Invoice</h3>
+    <div class="card-header">
+        As on Date : <input type="date" [(ngModel)]="todate" placeholder="yyyy-M-d">
+    </div>
+</div>
+<a class="btn btn-primary" (click)="loadReport(todate)">Go</a>
+
+<div class="card-body">
+
+<!--    <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" class="table table-bordered"> -->
+<table datatable class="table table-bordered">
+    <thead class="bg-dark text-white">
+        <tr>
+            <td>customername</td>
+            <td>Phone</td>
+            <td>Balance</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data">
+            <td>{{item.customername}}</td>
+            <td>{{item.customerphone1}}</td>
+            <td>{{item.balance}}</td>
+            <td style="width: 30%">
+                <a class="btn btn-primary" (click)="ledger(item.custno)">Edit</a> |
+            </td>
+
+        </tr>
+        <tr>
+            <td>Total </td>
+            
+        
+            <td>{{sumtotal}}</td>
+            <td>{{cnttotal}}</td>
+           
+        </tr>
+    </tbody>
+
+</table>
+
+</div>

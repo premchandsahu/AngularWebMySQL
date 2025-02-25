@@ -1,0 +1,28 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg" style="width: 400px;">
+        <h3 class="text-center mb-3">ERP Login</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" formControlName="username" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" formControlName="password" required />
+            </div>
+            <div>
+                <label class="form-label">Center</label>
+                <ng-select [items]="mastercenter" [clearable]="false" bindLabel="centername" bindValue="centerno"
+                    clearAllText="Clear" formControlName="centerno" class="form-control">
+                </ng-select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!loginForm.valid">Login</button>
+        </form>
+    </div>
+</div>
+
+
+
+<a class="btn btn-primary" (click)="onLogin()">Login</a> |

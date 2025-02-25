@@ -1,0 +1,43 @@
+<div class="card" style="width: 1200px">
+    <h3>Listing Receipts</h3>
+    <div class="card-header">
+        <a class="btn btn-success" routerLink="/appmenu/receipt">Create New [+]</a>
+    </div>
+    <div class="card-body">
+
+        <!--    <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" class="table table-bordered"> -->
+        <table datatable class="table table-bordered">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <td>Receipt No</td>
+                    <td>Receipt Date</td>
+                    <td>Customer</td>
+                    <td>Amount</td>
+                    <td>Payment Mode</td>
+                    <td>Document No</td>
+                    <td>Remarks</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of receiptlisting">
+                    <td>{{item.customerreceiptno}}</td>
+                    <td>{{item.customerreceiptdate}}</td>
+                    <td>{{item.customername}}</td>
+                    <td>{{item.receiptamount}}</td>
+                    <td>{{item.paymentmodeno}}</td>
+                    <td>{{item.documentnumber}}</td>
+                    <td>{{item.remarks}}</td>
+                    <td style="width: 30%">
+                        <a class="btn btn-primary" (click)="Editreceipt(item.customerreceiptno)">Edit</a> |
+                        <a class="btn btn-danger" (click)="receiptremove(item.customerreceiptno)">Delete</a> |
+
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

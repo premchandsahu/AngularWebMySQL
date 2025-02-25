@@ -1,0 +1,70 @@
+<div class="card" style="width: 1200px">
+<h3>Listing Purchase</h3>
+<div class="card-header">
+    <a class="btn btn-success" routerLink="/appmenu/purchase" [state]="center">Create New [+]</a>
+    From Date : <input type="date" [(ngModel)]="fromdate" placeholder="yyyy-M-d">
+    To Date : <input type="date" [(ngModel)]="todate" placeholder="yyyy-M-d">
+    <div class="form-group">
+        <label>Customer</label>
+        <ng-select [items]="mastercustomer" [clearable]="false" bindLabel="suppliername" bindValue="supplierno"
+            clearAllText="Clear" [(ngModel)]="supplierno"  >
+        </ng-select>
+    </div>
+    <a class="btn btn-primary" (click)="loadPurchase(fromdate,todate,supplierno)">Go</a>
+</div>
+<div class="card-body">
+
+    <!--    <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" class="table table-bordered"> -->
+    <table datatable class="table table-bordered">
+        <thead class="bg-dark text-white">
+            <tr>
+                <td>Purchase No</td>
+                <td>Date</td>
+                <td>Supplier Name</td>
+                <td>Total Amount</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of Purchaseheader">
+                <td>{{item.purchaseno}}</td>
+                <td>{{item.purchasedate}}</td>
+                <td>{{item.suppliername}}</td>
+                <td>{{item.total}}</td>
+                <!--    <td>{{item.remarks}}</td>
+    <td>{{item.total | currency}}</td>
+    <td>{{item.tax | currency}}</td>
+    <td>{{item.netTotal | currency}}</td> -->
+                <td style="width: 30%">
+                    <a class="btn btn-primary" (click)="Editpurchase(item.purchaseno)">Edit</a> |
+                    <a class="btn btn-danger" (click)="purchaseremove(item.purchaseno)">Delete</a> |
+                    <a class="btn btn-success" (click)="PreviewPurchase(item.purchaseno)">Print</a> |
+                    <a class="btn btn-success" (click)="DownloadPurchase(item.purchaseno)">Download</a>
+                </td>
+
+            </tr>
+            <tr>
+                <td>Total </td>
+                <td>{{cnttotal}}</td>
+                <td></td>
+                <td>{{sumtotal}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+</div>
+<!--
+<ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Preview Purchase : <b>{{purchaseno}}</b></h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-danger" (click)="d('Cross click')">Close</button>
+	</div>
+</ng-template>
+-->

@@ -1,0 +1,11 @@
+<form #categoryForm="ngForm" (ngSubmit) = "onSubmit(categoryForm.value)">
+    <div class="mb-3">
+        <label for="name" class="form-label">Product Category</label>
+        <input type="text" ngModel name="name" class="form-control" id="name" aria-describedby="emailHelp">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<tr *ngFor="let user of users">
+    <td> {{user.name}} </td> 
+</tr>

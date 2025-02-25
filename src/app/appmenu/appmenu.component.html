@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/appmenu">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="invoicelisting" [state]="center">Invoice</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Masters
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="productcategory">Product Category</a></li>
+              <li><a class="dropdown-item" routerLink="productlisting">Product</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" routerLink="customerlisting">Customer</a></li>
+              <li><a class="dropdown-item" routerLink="supplierlisting">Supplier</a></li>
+              <li><a class="dropdown-item" routerLink="receiptlisting">Receipt</a></li>
+              <li><a class="dropdown-item" routerLink="paymentlisting">Payment</a></li>
+              <li><a class="dropdown-item" routerLink="purchaselisting" [state]="center">Purchase</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Admin & Reports
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="invoicelistingp"  [state]="center">Listing P</a></li>
+              <li><a class="dropdown-item" routerLink="accountsummary"  [state]="center">Account Summary</a></li>
+              <li><a class="dropdown-item" routerLink="ledger"  [state]="center">Account ledger</a></li>
+              <li><a class="dropdown-item" routerLink="itembalance"  [state]="center">Product balance</a></li>
+              <li><a class="dropdown-item" routerLink="itemledger"  [state]="center">Product ledger</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+        <form class="d-flex" role="search">
+          <h6>{{center?.centername}}|</h6>
+          <h6>Welcome,{{ user?.username }}</h6>
+       
+          <button class="btn btn-outline-success" (click)="logout()">Logout</button>
+  <!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>-->
+        </form>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>

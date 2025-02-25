@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@ng-select/ng-select/themes/default.theme.css';
+@import 'ag-grid-community/styles/ag-theme-quartz.css';
+@import 'ag-grid-community/styles/ag-grid.css';
+
+@media print {
+    body * {
+      visibility: hidden;
+    }
+    #printSection, #printSection * {
+      visibility: visible;
+    }
+    #printSection {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }

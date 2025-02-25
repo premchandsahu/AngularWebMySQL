@@ -1,0 +1,73 @@
+<div class="card" style="width: 100%">
+    <h3>Listing Invoice</h3>
+    <div class="card-header">
+        <a class="btn btn-success" routerLink="/appmenu/receipt" [state]="center">Payment recceipt</a>
+        From Date : <input type="date" [(ngModel)]="fromdate" placeholder="yyyy-M-d">
+        To Date : <input type="date" [(ngModel)]="todate" placeholder="yyyy-M-d">
+        <div class="form-group">
+        <label>Customer</label>
+        <ng-select [items]="mastercustomer" [clearable]="false" bindLabel="name" bindValue="productno"
+            clearAllText="Clear" [(ngModel)]="productno"  >
+        </ng-select>
+    </div>
+        <a class="btn btn-primary" (click)="loadInvoice(fromdate,todate,productno,centerno)">Go</a>
+    </div>
+    <div class="card-body">
+
+        <!--    <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" class="table table-bordered"> -->
+        <table style="width:100%" datatable class="table table-bordered">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Opening Balance</td>
+                    <td>{{openingbalance}}</td>
+                </tr>
+                <tr style="height:2px">
+                    <td style="width:7%">Doc No</td>
+                    <td style="width:7%">Date</td>
+                    <td style="width:7%">Type</td>
+                    <td style="width:7%">Center</td>
+                    <td style="width:7%">In Qty</td>
+                    <td style="width:7%">Out Qty</td>
+                    <td style="width:58%">Remarks</td>
+                    <td style="width:7%">Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of Invoiceheader">
+                    <td>{{item.tno}}</td>
+                    <td>{{item.tdate | date:'dd/MM/yyyy'}}</td>
+                    <td>{{item.ttype}}</td>
+                    <td>{{item.partyname}}</td>
+                    <td>{{item.inqty}}</td>
+                    <td>{{item.outqty}}</td>
+                 <!--   <td>{{item.tamount}}</td> -->
+                    <td>{{item.remarks}}</td>
+                   
+                    <!--    <td>{{item.remarks}}</td>
+    <td>{{item.total | currency}}</td>
+    <td>{{item.tax | currency}}</td>
+    <td>{{item.netTotal | currency}}</td> -->
+                    <td style="width: 30%">
+                        <a class="btn btn-primary" (click)="Editinvoice(item.invoiceno)">Edit</a> 
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Total </td>
+                    <td></td>
+                    <td>{{cnttotal}}</td>
+                    <td></td>
+                    <td>{{sumtotal}}</td>
+                    <td>{{sumtotalp}}</td>
+                    <td>Closing Balance: {{closingbalance}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

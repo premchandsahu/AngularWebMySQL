@@ -1,0 +1,43 @@
+<div class="card" style="width: 1200px">
+    <h3>Listing Payments</h3>
+    <div class="card-header">
+        <a class="btn btn-success" routerLink="/appmenu/payment">Create New [+]</a>
+    </div>
+    <div class="card-body">
+
+        <!--    <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" class="table table-bordered"> -->
+        <table datatable class="table table-bordered">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <td>Payment No</td>
+                    <td>Payment Date</td>
+                    <td>Customer</td>
+                    <td>Amount</td>
+                    <td>Payment Mode</td>
+                    <td>Document No</td>
+                    <td>Remarks</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of paymentlisting">
+                    <td>{{item.supplierpaymentno}}</td>
+                    <td>{{item.supplierpaymentdate}}</td>
+                    <td>{{item.suppliername}}</td>
+                    <td>{{item.paymentamount}}</td>
+                    <td>{{item.paymentmodeno}}</td>
+                    <td>{{item.documentnumber}}</td>
+                    <td>{{item.remarks}}</td>
+                    <td style="width: 30%">
+                        <a class="btn btn-primary" (click)="Editpayment(item.supplierpaymentno)">Edit</a> |
+                        <a class="btn btn-danger" (click)="paymentremove(item.supplierpaymentno)">Delete</a> |
+
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

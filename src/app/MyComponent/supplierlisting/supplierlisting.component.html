@@ -1,0 +1,35 @@
+<div class="card" style="width: 1200px">
+    <h3>Listing Supplier</h3>
+    <div class="card-header">
+        <a class="btn btn-success" routerLink="/appmenu/supplier">Create New [+]</a>
+    </div>
+    <div class="card-body">
+
+        <!--    <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" class="table table-bordered"> -->
+        <table datatable class="table table-bordered">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <td>Supplier No</td>
+                    <td>Name</td>
+                  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of supplierlisting">
+                    <td>{{item.supplierno}}</td>
+                    <td>{{item.suppliername}}</td>
+
+                    <td style="width: 30%">
+                        <a class="btn btn-primary" (click)="Editsupplier(item.supplierno)">Edit</a> |
+                        <a class="btn btn-danger" (click)="supplierremove(item.supplierno)">Delete</a> |
+
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

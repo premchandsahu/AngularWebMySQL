@@ -1,0 +1,93 @@
+<div class="card" style="width: 100%">
+    <h3>Listing Invoice</h3>
+    <div class="card-header">
+        <a class="btn btn-success" routerLink="/appmenu/receipt" [state]="center">Payment recceipt</a>
+        From Date : <input type="date" [(ngModel)]="fromdate" placeholder="yyyy-M-d">
+        To Date : <input type="date" [(ngModel)]="todate" placeholder="yyyy-M-d">
+        <div class="form-group">
+        <label>Customer</label>
+        <ng-select [items]="mastercustomer" [clearable]="false" bindLabel="customername" bindValue="custno"
+            clearAllText="Clear" [(ngModel)]="custno"  >
+        </ng-select>
+    </div>
+        <a class="btn btn-primary" (click)="loadInvoice(fromdate,todate,custno)">Go</a>
+        <button class="btn btn-primary" ngxPrint printSectionId="printSection"  printTitle="My Invoice" [useExistingCss]="true">>Print</button>
+    </div>
+    <div id="printSection" class="card-body">
+       Period  {{fromdate| date:'dd/MM/yyyy'}}  to {{todate| date:'dd/MM/yyyy'}} | {{customer[0].customername}}
+        <!--    <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" class="table table-bordered"> -->
+        <table style="width:100%" datatable class="table table-bordered" [border]="1">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <td style="border: 1px solid black; padding: 1px;"></td>
+                    <td style="border: 1px solid black; padding: 1px;"></td>
+                    <td style="border: 1px solid black; padding: 1px;"></td>
+                    <td style="border: 1px solid black; padding: 1px;">Opening Balance</td>
+                    <td style="border: 1px solid black; padding: 1px;">{{openingbalance}}</td>
+                </tr>
+                <tr style="height:2px">
+                    <td style="width:7%;border: 1px solid black; padding: 1px;" >Doc No</td>
+                    <td style="width:7%;border: 1px solid black; padding: 1px;">Date</td>
+                    <td style="width:7%;border: 1px solid black; padding: 1px;">Type</td>
+                    <td style="width:7%;border: 1px solid black; padding: 1px;">Center</td>
+                    <td style="width:7%;border: 1px solid black; padding: 1px;">Invoice Amount</td>
+                    <td style="width:7%;border: 1px solid black; padding: 1px;">Receipt Amount</td>
+                    <td style="width:58%;border: 1px solid black; padding: 1px;">Remarks</td>
+                    <td style="width:7%;border: 1px solid black; padding: 1px;">Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of Invoiceheader">
+                    <td style="width:7%;border: 1px solid black; ">{{item.tno}}</td>
+                    <td style="width:7%;border: 1px solid black; ">{{item.tdate | date:'dd/MM/yyyy'}}</td>
+                    <td style="width:7%;border: 1px solid black;">{{item.ttype}}</td>
+                    <td style="width:7%;border: 1px solid black;">{{item.centername}}</td>
+                    <td style="width:7%;border: 1px solid black; ">{{item.invoiceamount}}</td>
+                    <td style="width:7%;border: 1px solid black; ">{{item.receiptamount}}</td>
+                 <!--   <td>{{item.tamount}}</td> -->
+                    <td style="width:7%;border: 1px solid black; padding: 1px;">{{item.remarks}}</td>
+                   
+                    <!--    <td>{{item.remarks}}</td>
+    <td>{{item.total | currency}}</td>
+    <td>{{item.tax | currency}}</td>
+    <td>{{item.netTotal | currency}}</td> -->
+                    <td style="width: 30%">
+                        <a class="btn btn-primary" (click)="Editinvoice(item.invoiceno)">Edit</a> 
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Total </td>
+                    <td></td>
+                    <td>{{cnttotal}}</td>
+                    <td></td>
+                    <td>{{sumtotal}}</td>
+                    <td>{{sumtotalp}}</td>
+                    <td>Closing Balance: {{closingbalance}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+   
+
+    <!-- Content to Print 
+    <div id="printSection">
+      <h2>Invoice</h2>
+      <p>Customer Name: John Doe</p>
+      <p>Product: Angular Course</p>
+      <p>Price: $99</p>
+    </div>-->
+</div>
+<!--
+<ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Preview Invoice : <b>{{invoiceno}}</b></h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-danger" (click)="d('Cross click')">Close</button>
+	</div>
+</ng-template>
+-->
