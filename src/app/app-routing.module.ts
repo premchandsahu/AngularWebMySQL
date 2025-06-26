@@ -27,6 +27,8 @@ import { AccountbalanceComponent } from './Reports/accountbalance/accountbalance
 import { CustomertransactionComponent } from './Reports/customertransaction/customertransaction.component';
 import { ItembalanceComponent } from './Reports/itembalance/itembalance.component';
 import { ItemtransactionComponent } from './Reports/itemtransaction/itemtransaction.component';
+import { ItemsummaryComponent } from './Reports/itemsummary/itemsummary.component';
+import { ItemsummarypComponent } from './Reports/itemsummaryp/itemsummaryp.component';
 
 const routes: Routes = [
   {
@@ -158,6 +160,15 @@ const routes: Routes = [
       {
         path: 'itemledger',
         component: ItemtransactionComponent
+      },
+      {
+        path: 'itemsummary',
+        component: ItemsummaryComponent
+      }
+      ,
+      {
+        path: 'itemsummaryp',
+        component: ItemsummarypComponent
       },
       {
         path: 'edititemledger/:centerno/:productno',

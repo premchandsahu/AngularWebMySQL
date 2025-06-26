@@ -147,7 +147,16 @@ export class UserdataService {
     return this.http.post(this.url + "report/itemtransaction", paramdata)
     //return this.http.post(this.url + "invoicesummary",paramdata)
   }
-
+  itemsummary(paramdata: any) {
+    console.log(paramdata)
+    return this.http.post(this.url + "report/itemsummary", paramdata)
+    //return this.http.post(this.url + "invoicesummary",paramdata)
+  }
+  itemsummaryp(paramdata: any) {
+    console.log(paramdata)
+    return this.http.post(this.url + "report/itemsummaryp", paramdata)
+    //return this.http.post(this.url + "invoicesummary",paramdata)
+  }
   receipt() {
     return this.http.get(this.url + "customerreceipt")
   }

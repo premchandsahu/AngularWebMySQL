@@ -12,12 +12,19 @@ export class ReceiptlistingComponent {
   ngOnInit(): void {
     this.loadReceipt();
   }
+  sumtotal: number=0;
   receiptlisting: any;
   loadReceipt(){
     
     this.userdata.receipt().subscribe((res) => {
   
       this.receiptlisting = res;
+
+      this.sumtotal=0
+      this.receiptlisting.forEach((x: any) => {
+        this.sumtotal = this.sumtotal + Number(x.receiptamount);
+      });
+
     })
     console.log(this.receiptlisting);
 

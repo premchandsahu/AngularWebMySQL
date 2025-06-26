@@ -23,6 +23,8 @@
                     <td style="width:7%;border: 1px solid black; padding: 1px;">ProductName</td>
                     <td style="width:7%;border: 1px solid black; padding: 1px;">Qty</td>
                     <td style="width:7%;border: 1px solid black; padding: 1px;">Amount</td>
+                    <td style="width:7%;border: 1px solid black; padding: 1px;">AmountP</td>
+                    <td style="width:7%;border: 1px solid black; padding: 1px;">Profit</td>
                 </tr>
             </thead>
             <tbody>
@@ -31,9 +33,11 @@
                     <td style="width:7%;border: 1px solid black; ">{{item.name}}</td>
                     <td style="width:7%;border: 1px solid black;">{{item.qty}}</td>
                     <td style="width:7%;border: 1px solid black;">{{item.amount}}</td>
+                    <td style="width:7%;border: 1px solid black;">{{item.pamount}}</td>
+                    <td style="width:7%;border: 1px solid black;">{{item.amount - item.pamount}}</td>
                 </tr>
             </tbody>
-            <tr><td>Total amount</td><td>{{sumtotal}}</td></tr>    
+            <tr><td>Total amount</td><td>{{sumtotal}}</td><td>{{sumtotalp}}</td><td>{{sumprofit}}</td></tr>    
         </table>
 
     </div>

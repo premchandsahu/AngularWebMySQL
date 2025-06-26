@@ -38,6 +38,7 @@ import { ItembalanceComponent } from './Reports/itembalance/itembalance.componen
 import { NgxPrintModule } from 'ngx-print';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ItemsummaryComponent } from './Reports/itemsummary/itemsummary.component';
+import { ItemsummarypComponent } from './Reports/itemsummaryp/itemsummaryp.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { ItemsummaryComponent } from './Reports/itemsummary/itemsummary.componen
     CustomertransactionComponent,
     ItemtransactionComponent,
     ItembalanceComponent,
-    ItemsummaryComponent
+    ItemsummaryComponent,
+    ItemsummarypComponent
   ],
   imports: [
     BrowserModule,
